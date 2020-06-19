@@ -1,17 +1,29 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
+  "name": "va-service",
+  "version": "1.0.0",
+  "description": "Kickstarter app",
+  "main": "index.js",
   "scripts": {
+    "test": "jest",
+    "start": "nodemon server/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-iroh/VA-Service.git"
+  },
+  "author": "Vasan Arul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/team-iroh/VA-Service/issues"
+  },
+  "homepage": "https://github.com/team-iroh/VA-Service#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4",
+    "sequelize": "^5.21.13"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "jest": "^26.0.1"
   }
 }
