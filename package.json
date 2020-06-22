@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "seed": "database/seed video.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,12 @@
   "homepage": "https://github.com/team-iroh/VA-Service#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
     "nodemon": "^2.0.4",
-    "sequelize": "^5.21.13"
+    "sequelize": "^5.21.13",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "jest": "^26.0.1"

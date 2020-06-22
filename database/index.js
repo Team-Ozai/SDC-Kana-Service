@@ -1,22 +1,20 @@
-var mysql = require('mysql')
+const {Sequelize, Model, Datatypes} = require('sequelize');
 
-var connection = mysql.createConnection({
+var sequelize = new Sequelize('mysql', 'root', 'baseball', {
   host: 'localhost',
-  user: 'root',
-  password: 'baseball',
-  database: 'kickstarter'
+  dialect: 'mysql'
 });
 
-connection.connect()
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) {
-    console.log(err);
-  }
+sequelize.sync();
 
-  console.log('The solution is: ', rows[0].solution)
-})
 
-connection.end()
-
-module.exports.connection = connection;
+module.exports.sequelize = sequelize;
