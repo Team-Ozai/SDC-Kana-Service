@@ -6,10 +6,6 @@ import Banner from './Banner.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props)
-
-    // this.state = {
-    //   banners: []
-    // }
   }
 
 
