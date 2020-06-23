@@ -1,7 +1,13 @@
 import React from 'react';
 
-const App = (props) => {
-  return (<h1>Hello World!</h1>)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return <div>Jello World</div>
+  }
 }
 
 export default App;

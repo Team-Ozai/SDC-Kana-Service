@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const faker = require('faker');
+const path = require('path');
 const port = 3002;
 const db = require('../database/index.js');
 
 console.log(2);
 let firstName = faker.name.firstName();
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/api/videos', (req, res) => {
   db.Video.findAll()
