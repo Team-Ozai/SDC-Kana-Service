@@ -30,7 +30,7 @@ const generateVids = function() {
     Video.create ({
       title: faker.commerce.productName(),
       description: faker.lorem.sentence(),
-      video_url: faker.image.imageUrl()
+      video_url: "https://www.youtube.com/embed/ASGBDmZj6o0"
     });
   }
 }

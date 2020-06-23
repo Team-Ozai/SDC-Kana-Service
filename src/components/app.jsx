@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Banner from './Banner.jsx';
+import Video from './Video.jsx';
 
 
 class App extends React.Component {
@@ -10,7 +11,11 @@ class App extends React.Component {
 
 
   render() {
-    return <Banner />
+    return <div>
+      <div><Banner /></div>
+      <br></br>
+      <div><Video /></div>
+      </div>
   }
 }
 

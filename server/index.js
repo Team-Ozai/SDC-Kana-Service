@@ -36,6 +36,13 @@ app.get('/api/banner', (req, res) => {
   })
 });
 
+app.get('/api/video', (req, res) => {
+  db.Video.findOne()
+  .then(result => {
+    res.send(result);
+  })
+});
+
 
 app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
 
