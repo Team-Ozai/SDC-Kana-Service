@@ -36,10 +36,22 @@ app.get('/api/banner', (req, res) => {
   })
 });
 
+app.post('/api/banner', (req, res) => {
+  db.generateBanners().then(result => {
+    console.log(result);
+  })
+});
+
 app.get('/api/video', (req, res) => {
   db.Video.findOne()
   .then(result => {
     res.send(result);
+  })
+});
+
+app.post('/api/video', (req, res) => {
+  db.generateVids().then(result => {
+    console.log(result);
   })
 });
 

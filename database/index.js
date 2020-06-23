@@ -81,3 +81,5 @@ module.exports.sequelize = sequelize;
 module.exports.Sequelize = Sequelize;
 module.exports.Video = Video;
 module.exports.Banner = Banner;
+module.exports.generateBanners = generateBanners;
+module.exports.generateVids = generateVids;

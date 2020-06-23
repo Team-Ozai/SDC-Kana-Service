@@ -31,8 +31,6 @@ class Video extends React.Component {
 
   render() {
     return <div>
-      <div>{this.state.title}</div>
-      <div>{this.state.description}</div>
       <iframe src={this.state.video_url}
               frameBorder='0'
               allow='autoplay; encrypted-media'
