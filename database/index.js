@@ -1,5 +1,4 @@
 const {Sequelize, Model, Datatypes} = require('sequelize');
-const mysql = require('mysql2');
 const faker = require('faker');
 
 var sequelize = new Sequelize('kickstarter', 'root', 'baseball', {
@@ -60,9 +59,9 @@ const generateBanners = function() {
     Banner.create ({
       title: faker.commerce.productName(),
       description: faker.lorem.sentence(),
-      amount_pledged: faker.finance.amount(),
+      amount_pledged: `$${faker.finance.amount()}`,
       goal: `pledged of $${faker.finance.amount()}`,
-      backers: 1 + Math.floor(Math.random() * 500),
+      backers: 1 + Math.floor(Math.random() * 499),
       backers_text: "backers",
       days: 1 + Math.floor(Math.random() * 59),
       days_text: "days to go",
@@ -77,8 +76,6 @@ const generateBanners = function() {
 
 Banner.sync()
 
-module.exports.sequelize = sequelize;
-module.exports.Sequelize = Sequelize;
 module.exports.Video = Video;
 module.exports.Banner = Banner;
 module.exports.generateBanners = generateBanners;

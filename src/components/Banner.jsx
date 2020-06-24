@@ -11,6 +11,7 @@ class Banner extends React.Component {
       goal: '',
       amount_pledged: null,
       days: null,
+      days_text: '',
       location: '',
       backers: null,
       backers_text: ''
@@ -28,6 +29,7 @@ class Banner extends React.Component {
         goal: result.data.goal,
         amount_pledged: result.data.amount_pledged,
         days: result.data.days,
+        days_text: result.data.days_text,
         location: result.data.location,
         backers: result.data.backers,
         backers_text: result.data.backers_text
@@ -41,14 +43,15 @@ class Banner extends React.Component {
 
   render() {
     return <div>
-      <div>{this.state.title}</div>
+      <div style={{color: "red"}}>{this.state.title}</div>
       <div>{this.state.description}</div>
-      <div>{this.state.goal}</div>
       <div>{this.state.amount_pledged}</div>
+      <div>{this.state.goal}</div>
       <div>{this.state.days}</div>
-      <div>{this.state.location}</div>
+      <div>{this.state.days_text}</div>
       <div>{this.state.backers}</div>
       <div>{this.state.backers_text}</div>
+      <div>{this.state.location}</div>
       </div>
   }
 }
