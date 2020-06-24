@@ -1,5 +1,6 @@
 const {Sequelize, Model, Datatypes} = require('sequelize');
 const faker = require('faker');
+const seeder = require('./seeder.js');
 
 var sequelize = new Sequelize('kickstarter', 'root', 'baseball', {
   host: 'localhost',
@@ -10,6 +11,9 @@ sequelize
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
+  }).then(()=> {
+    seeder.generateVideos()
+    seeder.generateBanners()
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
@@ -23,20 +27,6 @@ Video.init({
   video_url: Sequelize.STRING,
   bannerID: Sequelize.STRING
 }, {sequelize, modelName: 'video'});
-
-const generateVids = function() {
-  for (var i = 0; i < 5; i ++) {
-    Video.create ({
-      title: faker.commerce.productName(),
-      description: faker.lorem.sentence(),
-      video_url: "https://www.youtube.com/embed/ASGBDmZj6o0"
-    });
-  }
-}
-
-// generateVids()
-
-Video.sync();
 
 class Banner extends Model {}
 
@@ -54,29 +44,9 @@ Banner.init ({
   project_we_love: Sequelize.BOOLEAN
 }, {sequelize, modelName: 'banner'});
 
-const generateBanners = function() {
-  for (var i = 0; i < 5; i ++) {
-    Banner.create ({
-      title: faker.commerce.productName(),
-      description: faker.lorem.sentence(),
-      amount_pledged: `$${faker.finance.amount()}`,
-      goal: `pledged of $${faker.finance.amount()}`,
-      backers: 1 + Math.floor(Math.random() * 499),
-      backers_text: "backers",
-      days: 1 + Math.floor(Math.random() * 59),
-      days_text: "days to go",
-      all_or_nothing: faker.random.boolean(),
-      location: faker.address.country(),
-      project_we_love: faker.random.boolean()
-    });
-  }
-}
-
-// generateBanners()
-
+Video.sync();
 Banner.sync()
 
+module.exports.sequelize = sequelize;
 module.exports.Video = Video;
 module.exports.Banner = Banner;
-module.exports.generateBanners = generateBanners;
-module.exports.generateVids = generateVids;
