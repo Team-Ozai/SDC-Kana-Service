@@ -10,6 +10,7 @@ const Fundingdiv = styled.div`
   margin: 0px 0px 30px;
   font-weight: 400;
   text-align: right;
+  flex-direction: column;
   Element Type: div;
   Element Class: flex, flex-column-lg, mb4, mb5-sm;
 `

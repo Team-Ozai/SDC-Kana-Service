@@ -7,6 +7,18 @@ require('mysql2/node_modules/iconv-lite').encodingExists('foo')
 
 jest.mock('axios');
 
+// describe('Banner', () => {
+//   test('generateBanners is a function', () => {
+//     expect(seeder.generateBanners).toBeInstanceOf(Function);
+//   });
+// })
+
+// describe('Video', () => {
+//   test('generateVideos is a function', () => {
+//     expect(seeder.generateVideos).toBeInstanceOf(Function);
+//   });
+// })
+
 // describe('api/banners', () => {
 //   console.log('test');
 // })
@@ -15,27 +27,15 @@ jest.mock('axios');
 //   console.log('test');
 // })
 
-describe('Banner', () => {
-  test('generateBanners is a function', () => {
-    expect(seeder.generateBanners).toBeInstanceOf(Function);
+describe('Sequelize', () => {
+  test('sequelize connection established', () => {
+    db.sequelizeConnection.then(() => {
+      console.log = jest.fn();
+      log('Connection has been established successfully.')
+      expect(console.log).toHaveBeenCalledWith('Connection has been established successfully.')
+    });
   });
 })
-
-describe('Video', () => {
-  test('generateVideos is a function', () => {
-    expect(seeder.generateVideos).toBeInstanceOf(Function);
-  });
-})
-
-// describe('Sequelize', () => {
-//   test('sequelize connection established', () => {
-//     return db.sequelize.authenticate().then(() => {
-//       console.log = jest.fn();
-//       log('Connection has been established successfully.')
-//       expect(console.log).toHaveBeenCalledWith('Connection has been established successfully.')
-//     });
-//   });
-// })
 
 // it('returns the title of the first banner', async () => {
 //   axios.get.mockResolvedValue({
@@ -55,4 +55,3 @@ describe('Video', () => {
 // })
 
 // const title = await kickstarter
-// e

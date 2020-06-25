@@ -4,8 +4,6 @@ const faker = require('faker');
 const path = require('path');
 const port = 3002;
 const db = require('../database/index.js');
-const pexels = require('../pexels/pexels.js');
-const request = require('request');
 const bodyParser = require('body-parser');
 
 console.log(2);
@@ -24,6 +22,13 @@ app.get('/api/videos', (req, res) => {
 
 app.get('/api/banners', (req, res) => {
   db.Banner.findAll()
+  .then(result => {
+    res.send(result);
+  })
+});
+
+app.get('/api/banners/:bannerId', (req, res) => {
+  db.Banner.findOne({id: req.params.bannerId})
   .then(result => {
     res.send(result);
   })
