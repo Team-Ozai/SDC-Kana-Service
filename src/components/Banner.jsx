@@ -1,5 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import Number from '../style/Number.style.js';
+import Title from '../style/title.style.js';
+import Description from '../style/description.style.js';
+import Pledged from '../style/pledged.style.js';
+import Sidetext from '../style/sidebarText.style.js';
+import BackerButton from '../style/backerButton.style.js';
+import Remind from '../style/remindButton.style.js';
+import Location from '../style/location.style.js';
+import Fundingdiv from '../style/fundingDiv.style.js';
 
 class Banner extends React.Component {
   constructor(props) {
@@ -43,15 +52,21 @@ class Banner extends React.Component {
 
   render() {
     return <div>
-      <div style={{color: "red"}}>{this.state.title}</div>
-      <div>{this.state.description}</div>
-      <div>{this.state.amount_pledged}</div>
-      <div>{this.state.goal}</div>
-      <div>{this.state.days}</div>
-      <div>{this.state.days_text}</div>
-      <div>{this.state.backers}</div>
-      <div>{this.state.backers_text}</div>
-      <div>{this.state.location}</div>
+      <div><Title>{this.state.title}</Title></div>
+      <div><Description>{this.state.description}</Description></div>
+      <div>
+        <Fundingdiv>
+          <div><Pledged>{this.state.amount_pledged}</Pledged></div>
+          <div><Sidetext>{this.state.goal}</Sidetext></div>
+          <div><Number>{this.state.days}</Number></div>
+          <div><Sidetext>{this.state.days_text}</Sidetext></div>
+          <div><Number>{this.state.backers}</Number></div>
+          <div><Sidetext>{this.state.backers_text}</Sidetext></div>
+        </Fundingdiv>
+      </div>
+      <div><Location>{this.state.location}</Location></div>
+      <div><BackerButton>Back this project</BackerButton></div>
+      <div><Remind>Remind Me</Remind></div>
       </div>
   }
 }

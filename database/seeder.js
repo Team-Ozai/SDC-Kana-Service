@@ -17,7 +17,7 @@ const generateBanners = function() {
       title: faker.commerce.productName(),
       description: faker.lorem.sentence(),
       amount_pledged: `$${faker.finance.amount()}`,
-      goal: `pledged of $${faker.finance.amount()}`,
+      goal: `pledged of $${faker.finance.amount()} goal`,
       backers: 1 + Math.floor(Math.random() * 499),
       backers_text: "backers",
       days: 1 + Math.floor(Math.random() * 59),

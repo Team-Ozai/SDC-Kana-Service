@@ -45,7 +45,7 @@ Banner.init ({
 }, {sequelize, modelName: 'banner'});
 
 Video.sync();
-Banner.sync()
+Banner.sync();
 
 module.exports.sequelize = sequelize;
 module.exports.Video = Video;
