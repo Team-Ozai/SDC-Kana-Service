@@ -4,11 +4,8 @@ import Funding from './Funding.jsx';
 import Banner from './Banner.jsx';
 import Video from './Video.jsx';
 import Social from './Social.jsx';
-import Videodiv from '../style/videoDiv.style.js';
 import MidWrapper from '../style/midWrapper.style.js';
 import Background from '../style/background.style.js';
-import Youtubes from '../../youtube/youtube.js';
-// import style from './style.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +14,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div><Background>
+    return <div style={{fontFamily: `"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif`}}><Background>
       <div><Banner /></div>
       <div><MidWrapper>
         <Video /><Funding />

@@ -4,6 +4,8 @@ const Description = styled.div`
   color: rgb(40, 40, 40);
   font-size: 18px;
   line-height: 24px;
+  margin: 0px 0px 6px;
+  font-weight: 400;
   vertical-align: baseline;
   letter-spacing: normal;
   text-align: center;

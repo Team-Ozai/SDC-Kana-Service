@@ -15,7 +15,6 @@ class Social extends React.Component {
 
   getBanner() {
     axios.get('api/banner').then(result => {
-      console.log(result.data);
       this.setState({
         location: result.data.location,
       });
@@ -27,7 +26,7 @@ class Social extends React.Component {
   }
 
   render() {
-    return <div style={{fontFamily: `"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif`}}>
+    return <div>
       <Location>Project We Love     Food and Drink     {this.state.location}     Project Budget</Location>
       </div>
   }

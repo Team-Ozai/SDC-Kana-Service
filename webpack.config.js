@@ -13,7 +13,7 @@ module.exports = {
     rules: [{
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: ["babel-loader"],
+        loader: "babel-loader",
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
@@ -25,7 +25,7 @@ module.exports = {
             loader: "css-loader", options: {modules: true, exportOnlyLocals: false}
           }
         ]
-      };
+      }
     ]
   }
 };

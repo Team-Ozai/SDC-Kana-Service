@@ -5,27 +5,17 @@ const kickstarter = require('../server/index.js')
 
 require('mysql2/node_modules/iconv-lite').encodingExists('foo')
 
-jest.mock('axios');
+describe('Banner', () => {
+  test('generateBanners is a function', () => {
+    expect(seeder.generateBanners).toBeInstanceOf(Function);
+  });
+})
 
-// describe('Banner', () => {
-//   test('generateBanners is a function', () => {
-//     expect(seeder.generateBanners).toBeInstanceOf(Function);
-//   });
-// })
-
-// describe('Video', () => {
-//   test('generateVideos is a function', () => {
-//     expect(seeder.generateVideos).toBeInstanceOf(Function);
-//   });
-// })
-
-// describe('api/banners', () => {
-//   console.log('test');
-// })
-
-// describe('api/videos', () => {
-//   console.log('test');
-// })
+describe('Video', () => {
+  test('generateVideos is a function', () => {
+    expect(seeder.generateVideos).toBeInstanceOf(Function);
+  });
+})
 
 describe('Sequelize', () => {
   test('sequelize connection established', () => {
@@ -36,6 +26,14 @@ describe('Sequelize', () => {
     });
   });
 })
+
+// describe('api/banners', () => {
+//   console.log('test');
+// })
+
+// describe('api/videos', () => {
+//   console.log('test');
+// })
 
 // it('returns the title of the first banner', async () => {
 //   axios.get.mockResolvedValue({

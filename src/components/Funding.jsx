@@ -5,7 +5,6 @@ import Pledged from '../style/pledged.style.js';
 import Sidetext from '../style/sidebarText.style.js';
 import BackerButton from '../style/backerButton.style.js';
 import Remind from '../style/remindButton.style.js';
-import Hover from '../style/hover.style.js';
 
 class Funding extends React.Component {
   constructor(props) {
@@ -25,7 +24,6 @@ class Funding extends React.Component {
 
   getBanner() {
     axios.get('api/banner').then(result => {
-      console.log(result.data);
       this.setState({
         goal: result.data.goal,
         amount_pledged: result.data.amount_pledged,
@@ -42,7 +40,7 @@ class Funding extends React.Component {
   }
 
   render() {
-    return <div style={{fontFamily: `"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif`}}>
+    return <div>
           <div><Pledged>{this.state.amount_pledged}</Pledged></div>
           <div><Sidetext>{this.state.goal}</Sidetext></div>
           <br></br>
