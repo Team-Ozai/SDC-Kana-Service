@@ -8,8 +8,11 @@ const Pledged = styled.div`
   line-height: 36px;
   vertical-align: baseline;
   font-weight: 700;
-  justify-content: flex-end;
   Element Class: ksr-green-500;
+  flex:1;
+  display: flex;
+  justify-content: center;
+  transform: translateX(250px);
 `
 
 export default Pledged;

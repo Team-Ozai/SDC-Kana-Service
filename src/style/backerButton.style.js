@@ -4,6 +4,9 @@ const BackerButton = styled.button`
   color: rgb(255, 255, 255);
   background-color: rgb(3, 115, 98);
   Font being Rendered: Maison Neue Book;
+  transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
+  position: relative;
   font-size: 16px;
   line-height: 48px;
   vertical-align: baseline;
@@ -15,6 +18,10 @@ const BackerButton = styled.button`
   Element Type: a;
   Element ID: back-project-button;
   Element Class: bttn, bttn-green, bttn-large, block, mb3;
+  flex:1;
+  display: flex;
+  justify-content: center;
+  transform: translateX(250px);
 `
 
 export default BackerButton;

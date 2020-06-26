@@ -47,6 +47,13 @@ app.post('/api/banner', (req, res) => {
   })
 });
 
+app.get('/api/videos/:videoId', (req, res) => {
+  db.Video.findOne({id: req.params.videoId})
+  .then(result => {
+    res.send(result);
+  })
+});
+
 app.get('/api/video', (req, res) => {
   db.Video.findOne()
   .then(result => {
@@ -59,7 +66,6 @@ app.post('/api/video', (req, res) => {
     console.log(result);
   })
 });
-
 
 app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
 

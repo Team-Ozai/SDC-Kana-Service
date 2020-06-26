@@ -6,7 +6,7 @@ const generateVideos = function() {
     db.Video.create ({
       title: faker.commerce.productName(),
       description: faker.lorem.sentence(),
-      video_url: "https://www.youtube.com/embed/ASGBDmZj6o0"
+      video_url: "https://www.youtube.com/embed/zlvAcRFnYSQ"
     });
   }
 }

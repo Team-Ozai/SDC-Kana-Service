@@ -9,10 +9,13 @@ const Sidetext = styled.div`
   vertical-align: baseline;
   letter-spacing: normal;
   font-weight: 400;
-  justify-content: flex-end;
   text-indent: 0px;
   Element Type: span;
   Element Class: block, dark-grey-500, type-12, type-14-md, lh3-lg;
+  flex:1;
+  display: flex;
+  justify-content: center;
+  transform: translateX(250px);
 `
 
 export default Sidetext;

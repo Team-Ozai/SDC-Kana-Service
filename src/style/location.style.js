@@ -8,7 +8,7 @@ const Location = styled.div`
   vertical-align: baseline;
   letter-spacing: normal;
   font-weight: 500;
-  text-align: start;
+  text-align: center;
   Element Type: span;
   Element Class: ml1;
 `

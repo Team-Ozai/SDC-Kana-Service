@@ -7,10 +7,13 @@ const Number = styled.div`
   font-size: 28px;
   line-height: 36px;
   vertical-align: baseline;
-  justify-content: flex-end;
   letter-spacing: normal;
   font-weight: 700
   text-align: start
+  flex:1;
+  display: flex;
+  justify-content: center;
+  transform: translateX(250px);
 `
 
 export default Number;

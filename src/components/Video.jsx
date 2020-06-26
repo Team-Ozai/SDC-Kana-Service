@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Videodiv from '../style/videoDiv.style.js';
+import Background from '../style/background.style.js';
+import Funding from './Funding.jsx'
+import MidWrapper from '../style/midWrapper.style.js';
+import Videodiv from '../style/Videodiv.style.js';
 
 class Video extends React.Component {
   constructor(props) {
@@ -33,12 +36,11 @@ class Video extends React.Component {
   render() {
     return <div>
       <Videodiv>
-        <iframe src={this.state.video_url}
-              frameBorder='0'
-              allow='autoplay; encrypted-media'
-              allowFullScreen
-              title='video'
-        />
+      <iframe src={this.state.video_url}
+        frameBorder='0'
+        allow='autoplay; encrypted-media'
+        allowFullScreen
+        title='video'/>
       </Videodiv>
       </div>
   }

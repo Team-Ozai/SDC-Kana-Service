@@ -14,6 +14,10 @@ const Remind = styled.button`
   text-align: right;
   Element Type: button;
   Element Class: bttn, bttn-medium, bttn-white, shadow-button, w100p;
+  flex:1;
+  display: flex;
+  justify-content: center;
+  transform: translateX(250px);
 `
 
 export default Remind;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Description = styled.div`
   color: rgb(40, 40, 40);
+  font-family (stack): "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   Font being Rendered: Maison Neue Book;
   font-size: 18px;
   line-height: 24px;

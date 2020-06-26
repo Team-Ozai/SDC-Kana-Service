@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 
-const Fundingdiv = styled.div`
-  color: rgb(40, 40, 40);
+const Background = styled.div`
+  background-color: rgb(251, 251, 250);
   Font being Rendered: Maison Neue Book;
   font-size: 14px;
   line-height: 21px;
   vertical-align: baseline;
   letter-spacing: normal;
-  margin: 0px 0px 30px;
+  margin: 0px;
+  padding: 0px;
   font-weight: 400;
-  text-align: right;
-  flex-direction: column;
   Element Type: div;
-  Element Class: flex, flex-column-lg, mb4, mb5-sm;
 `
 
-export default Fundingdiv;
+export default Background;
