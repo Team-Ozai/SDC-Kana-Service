@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 const Title = styled.div`
   color: rgb(40, 40, 40);
-  font-family (stack): "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  Font being Rendered: Maison Neue Book;
   font-size: 24px;
   line-height: 30px;
   margin: 0px 0px 6px;

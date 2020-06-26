@@ -42,7 +42,7 @@ class Funding extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div style={{fontFamily: `"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif`}}>
           <div><Pledged>{this.state.amount_pledged}</Pledged></div>
           <div><Sidetext>{this.state.goal}</Sidetext></div>
           <br></br>

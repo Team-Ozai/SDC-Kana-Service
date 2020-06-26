@@ -32,7 +32,7 @@ class Banner extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div style={{fontFamily: `"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif`}}>
       <div><Title>{this.state.title}</Title></div>
       <div><Description>{this.state.description}</Description></div>
       </div>
