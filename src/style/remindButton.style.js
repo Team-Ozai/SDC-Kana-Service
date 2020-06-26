@@ -4,6 +4,9 @@ const Remind = styled.button`
   color: rgb(40, 40, 40);
   background-color: rgb(255, 255, 255);
   Font being Rendered: Maison Neue Book;
+  transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
+  position: relative;
   font-size: 14px;
   line-height: 21px;
   vertical-align: baseline;
@@ -18,6 +21,10 @@ const Remind = styled.button`
   display: flex;
   justify-content: center;
   transform: translateX(250px);
+
+  &:hover:not(:disabled) {
+    outline: 1px solid #282828;
+  }
 `
 
 export default Remind;
