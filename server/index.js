@@ -1,13 +1,9 @@
 const express = require('express');
 const app = express();
-const faker = require('faker');
 const path = require('path');
 const port = 3002;
 const db = require('../database/index.js');
 const bodyParser = require('body-parser');
-
-console.log(2);
-let firstName = faker.name.firstName();
 
 app.use(express.static(path.join(__dirname, '../dist')));
 

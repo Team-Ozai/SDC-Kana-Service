@@ -36,10 +36,12 @@ class Video extends React.Component {
   render() {
     return <div>
       <Videodiv>
-      <iframe src={this.state.video_url}
+        <iframe src={this.state.video_url}
         frameBorder='0'
         allow='autoplay; encrypted-media'
         allowFullScreen
+        width={800}
+        height={449.98}
         title='video'/>
       </Videodiv>
       </div>

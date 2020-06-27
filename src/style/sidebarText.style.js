@@ -14,8 +14,8 @@ const Sidetext = styled.div`
   Element Class: block, dark-grey-500, type-12, type-14-md, lh3-lg;
   flex:1;
   display: flex;
-  justify-content: center;
-  transform: translateX(250px);
+  justify-content: flex-start;
+  transform: translateX(120px);
 `
 
 export default Sidetext;

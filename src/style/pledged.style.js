@@ -11,8 +11,8 @@ const Pledged = styled.div`
   Element Class: ksr-green-500;
   flex:1;
   display: flex;
-  justify-content: center;
-  transform: translateX(250px);
+  justify-content: flex-start;
+  transform: translateX(120px);
 `
 
 export default Pledged;

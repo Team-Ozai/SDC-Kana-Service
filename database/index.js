@@ -7,17 +7,6 @@ var sequelize = new Sequelize('kickstarter', 'root', 'baseball', {
   dialect: 'mysql'
 });
 
-// const sequelizeConnection = new Promise(sequelize.authenticate()
-// )  .then(() => {
-//   console.log('Connection has been established successfully.');
-// }).then(()=> {
-//   seeder.generateVideos()
-//   seeder.generateBanners()
-// })
-// .catch(err => {
-//   console.error('Unable to connect to the database:', err);
-// });
-
 sequelize
   .authenticate()
   .then(() => {
@@ -62,3 +51,14 @@ module.exports.sequelize = sequelize;
 // module.exports.sequelizeConnection = sequelizeConnection;
 module.exports.Video = Video;
 module.exports.Banner = Banner;
+
+ // const sequelizeConnection = new Promise(sequelize.authenticate()
+// )  .then(() => {
+//   console.log('Connection has been established successfully.');
+// }).then(()=> {
+//   seeder.generateVideos()
+//   seeder.generateBanners()
+// })
+// .catch(err => {
+//   console.error('Unable to connect to the database:', err);
+// });

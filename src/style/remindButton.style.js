@@ -19,8 +19,8 @@ const Remind = styled.button`
   Element Class: bttn, bttn-medium, bttn-white, shadow-button, w100p;
   flex:1;
   display: flex;
-  justify-content: center;
-  transform: translateX(250px);
+  justify-content: flex-start;
+  transform: translateX(120px);
 
   &:hover:not(:disabled) {
     outline: 1px solid #282828;

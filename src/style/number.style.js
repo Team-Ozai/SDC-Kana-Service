@@ -12,8 +12,8 @@ const Number = styled.div`
   text-align: start
   flex:1;
   display: flex;
-  justify-content: center;
-  transform: translateX(250px);
+  justify-content: flex-start;
+  transform: translateX(120px);
 `
 
 export default Number;

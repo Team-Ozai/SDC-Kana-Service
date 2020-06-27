@@ -41,14 +41,17 @@ class Funding extends React.Component {
 
   render() {
     return <div>
-          <div><Pledged>{this.state.amount_pledged}</Pledged></div>
-          <div><Sidetext>{this.state.goal}</Sidetext></div>
           <br></br>
-          <div><Number>{this.state.days}</Number></div>
-          <div><Sidetext>{this.state.days_text}</Sidetext></div>
-          <br></br>
-          <div><Number>{this.state.backers}</Number></div>
-          <div><Sidetext>{this.state.backers_text}</Sidetext></div>
+          <div>
+            <div><Pledged>{this.state.amount_pledged}</Pledged></div>
+            <div><Sidetext>{this.state.goal}</Sidetext></div>
+            <br></br>
+            <div><Number>{this.state.days}</Number></div>
+            <div><Sidetext>{this.state.days_text}</Sidetext></div>
+            <br></br>
+            <div><Number>{this.state.backers}</Number></div>
+            <div><Sidetext>{this.state.backers_text}</Sidetext></div>
+          </div>
           <br></br>
           <div><BackerButton>Back this project</BackerButton></div>
           <div><Remind>Remind Me</Remind></div>

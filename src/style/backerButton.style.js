@@ -10,19 +10,20 @@ const BackerButton = styled.button`
   font-size: 16px;
   display: inline-block;
   line-height: 48px;
+  width: 300px;
   vertical-align: baseline;
   letter-spacing: normal;
   margin: 0px 0px 18px;
   padding: 0px 24px;
   font-weight: 500;
-  text-align: right;
+  text-align: center;
   Element Type: a;
   Element ID: back-project-button;
   Element Class: bttn, bttn-green, bttn-large, block, mb3;
   flex:1;
   display: flex;
   justify-content: center;
-  transform: translateX(250px);
+  transform: translateX(120px);
 
   &:hover:not(:disabled) {
     background-color: rgb(3, 115, 98);
