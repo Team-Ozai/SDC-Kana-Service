@@ -27,7 +27,7 @@ class Social extends React.Component {
 
   render() {
     return <div>
-      <Location>Project We Love     Food and Drink     {this.state.location}     Project Budget</Location>
+      <Location>{'Project We Love'}{`    `}{'Food and Drink'} {this.state.location} {'Project Budget'}</Location>
       </div>
   }
 }
