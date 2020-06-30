@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server/index.js",
-    "seed": "database/seed video.js",
+    "seed": "node database/index.js",
     "build": "webpack --watch"
   },
   "repository": {
