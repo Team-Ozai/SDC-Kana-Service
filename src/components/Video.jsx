@@ -19,7 +19,7 @@ class Video extends React.Component {
   }
 
   getVideo() {
-    axios.get(`/api/video${window.location.pathname}`).then(result => {
+    axios.get(`http://localhost/3002/api/video${window.location.pathname}`).then(result => {
       console.log(result.data);
       this.setState({
         title: result.data.title,
