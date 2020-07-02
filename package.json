@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "nodemon server/index.js",
     "seed": "node database/index.js",
-    "build": "webpack-cli --watch"
+    "build": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
