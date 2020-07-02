@@ -14,7 +14,7 @@ class Social extends React.Component {
   }
 
   getBanner() {
-    axios.get(`/api/banners${window.location.pathname}`).then(result => {
+    axios.get(`/api/banner${window.location.pathname}`).then(result => {
       this.setState({
         location: result.data.location,
       });

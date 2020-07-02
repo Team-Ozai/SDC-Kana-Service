@@ -28,7 +28,7 @@ app.get('/api/banners', (req, res) => {
   })
 });
 
-app.get('/api/banners/:bannerId', (req, res) => {
+app.get('/api/banner/:bannerId', (req, res) => {
   db.Banner.findOne({where: {id: req.params.bannerId}})
   .then(result => {
     res.send(result);
@@ -42,7 +42,7 @@ app.get('/api/videos', (req, res) => {
   })
 });
 
-app.get('/api/videos/:videoId', (req, res) => {
+app.get('/api/video/:videoId', (req, res) => {
   console.log(req.params.videoId);
   db.Video.findOne({where: {id: req.params.videoId}})
   .then(result => {
@@ -72,6 +72,7 @@ app.post('/api/banner', (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
+
 
 
 app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
