@@ -9,8 +9,13 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use(bodyParser.json());
 
-app.get('/api/videos', (req, res) => {
-  db.Video.findAll()
+// app.get('/:id', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+// });
+// for proxy server
+
+app.get('/api/banner', (req, res) => {
+  db.Banner.findOne()
   .then(result => {
     res.send(result);
   })
@@ -24,27 +29,22 @@ app.get('/api/banners', (req, res) => {
 });
 
 app.get('/api/banners/:bannerId', (req, res) => {
-  db.Banner.findOne({id: req.params.bannerId})
+  db.Banner.findOne({where: {id: req.params.bannerId}})
   .then(result => {
     res.send(result);
   })
 });
 
-app.get('/api/banner', (req, res) => {
-  db.Banner.findOne()
+app.get('/api/videos', (req, res) => {
+  db.Video.findAll()
   .then(result => {
     res.send(result);
-  })
-});
-
-app.post('/api/banner', (req, res) => {
-  db.generateBanners().then(result => {
-    console.log(result);
   })
 });
 
 app.get('/api/videos/:videoId', (req, res) => {
-  db.Video.findOne({id: req.params.videoId})
+  console.log(req.params.videoId);
+  db.Video.findOne({where: {id: req.params.videoId}})
   .then(result => {
     res.send(result);
   })
@@ -63,5 +63,15 @@ app.post('/api/video', (req, res) => {
   })
 });
 
-app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
+app.post('/api/banner', (req, res) => {
+  db.generateBanners().then(result => {
+    console.log(result);
+  })
+});
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
+
+app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
