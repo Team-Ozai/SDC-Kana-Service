@@ -65,7 +65,9 @@ app.delete('/api/banner/:bannerId', (req, res) => {
 
 })
 
-//////*Video Data*//////
+///////// Video Data /////////
+
+//get one video based on id
 app.get('/api/video/:videoId', (req, res) => {
   console.log(req.params.videoId);
   db.Video.findOne({where: {id: req.params.videoId}})
@@ -74,6 +76,7 @@ app.get('/api/video/:videoId', (req, res) => {
   })
 });
 
+//get any one video
 app.get('/api/video', (req, res) => {
   db.Video.findOne()
   .then(result => {
@@ -81,6 +84,7 @@ app.get('/api/video', (req, res) => {
   })
 });
 
+//get all video data -> unnecessary?
 app.get('/api/videos', (req, res) => {
   db.Video.findAll()
   .then(result => {
@@ -88,17 +92,20 @@ app.get('/api/videos', (req, res) => {
   })
 });
 
+//add video data -> but don't send back
 app.post('/api/video', (req, res) => {
   db.generateVids().then(result => {
     console.log(result);
   })
+  res.end();
 });
 
-app.post('/api/banner', (req, res) => {
-  db.generateBanners().then(result => {
-    console.log(result);
-  })
-});
+//update 1 video data
+app.patch()
+
+
+//delete 1 video data
+app.delete()
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
@@ -107,3 +114,9 @@ app.get('*', (req, res) => {
 
 
 app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
+
+// app.post('/api/banner', (req, res) => {
+//   db.generateBanners().then(result => {
+//     console.log(result);
+//   })
+// });
