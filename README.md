@@ -12,24 +12,24 @@ Usage - Seed Database Script
 
 npm run seed
 
-# API
-## Banner
+## APIs
+### Banner
 - **GET**
- [ ] GET any banner data
+ - [ ] GET any banner data
     - `endpoint` : /api/banner
- [ ] GET banner data for specific id
+ - [ ] GET banner data for specific id
     - `endpoint` : /api/banner/:bannerId
- [ ] GET all banner data
+ - [ ] GET all banner data
     - `endpoint` : /api/banners
 
 - **POST**
-   [ ] POSTS 5 more banner datas
+   - [ ] POSTS 5 more banner datas
     - `endpoint` : /api/banners
 
 - **PATCH**
-   [ ] increments pledged amount for specific id by 10
+   - [ ] increments pledged amount for specific id by 10
     - `endpoint` : /api/banner/:bannerId
 
 - **DELETE**
-   [ ] DELETES data for specific id
+   - [ ] DELETES data for specific id
     - `endpoint` : /api/banner/:bannerId
