@@ -2,7 +2,7 @@ const {Sequelize, Model, Datatypes} = require('sequelize');
 const faker = require('faker');
 const seeder = require('./seeder.js');
 
-var sequelize = new Sequelize('kickstarter', 'root', '', {
+var sequelize = new Sequelize('kickstarter', 'root', 'Mongol800@', {
   host: 'localhost',
   dialect: 'mysql'
 });
