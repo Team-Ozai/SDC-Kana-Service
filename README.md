@@ -27,7 +27,7 @@ npm run seed
     - `endpoint` : /api/banners
 
 - **PATCH**
-   - [ ] increments pledged amount for specific id by 10
+   - [ ] increments backers for specific id by 1
     - `endpoint` : /api/banner/:bannerId
 
 - **DELETE**

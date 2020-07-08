@@ -4,6 +4,8 @@ const path = require('path');
 const cors = require('cors');
 const port = 3002;
 const db = require('../database/index.js');
+const seeder = require('../database/seeder.js');
+const faker = require('faker');
 const bodyParser = require('body-parser');
 
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -21,6 +23,7 @@ app.get('/api/banner', (req, res) => {
     res.send(result);
   })
 });
+
 //get specific banner data
 app.get('/api/banner/:bannerId', (req, res) => {
   db.Banner.findOne({where: {id: req.params.bannerId}})
@@ -39,26 +42,28 @@ app.get('/api/banners', (req, res) => {
 
 //post 5 more banner data
 app.post('/api/banners', (req, res) => {
-  db.generateBanners()
-  .then(db.Banner.findAll())
+  seeder.generateBanners()
+  db.Banner.findAll()
     .then(result => {
       res.send(result);
     });
 })
 
-//increments pledged amount by 10
+//increments pledged amount by 10 (returns nothing)
 app.patch('/api/banner/:bannerId', (req, res) => {
-  db.BannerfindOne({where: {id: req.params.bannerId}})
-    .then(result.increment('amount_pledged', {by : 10}))
-      .then(result => {
-        res.send(result);
-      })
+  db.Banner.findOne({where: {id: req.params.bannerId}})
+    .then(result => {
+      console.log(result)
+      // Number(result);
+      result.increment('backers', {by : 1})
+    })
+    .then(res.end)
 })
 
 
 //deletes one banner
 app.delete('/api/banner/:bannerId', (req, res) => {
-  db.BannerfindOne({where: {id: req.params.bannerId}})
+  db.Banner.findOne({where: {id: req.params.bannerId}})
     .then(result => result.destroy())
       .catch(err => console.log(err))
         .then(res.end());
@@ -101,11 +106,11 @@ app.post('/api/video', (req, res) => {
 });
 
 //update 1 video data
-app.patch()
+// app.patch()
 
 
 //delete 1 video data
-app.delete()
+// app.delete()
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
