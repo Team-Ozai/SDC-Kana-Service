@@ -60,20 +60,22 @@ var formatVideo = () => {
 //generate required amount of data
 var numofData = 1;
 
-var bannerCSV = '';
+var bannerCSV = "" + bannerHeader.join(', ') + "\n";
+
 var banners = function(num) {
   for (var i = 0; i <= numofData; i++) {
-    bannerCSV += formatBanner() + '/n '
+    bannerCSV += formatBanner() + "\n"
   }
-  return JSON.stringify(bannerCSV)
+  return bannerCSV
 }
 
-var videoCSV = '';
+var videoCSV = "" + videoHeader.join(', ') + "\n";
+
 var videos = function(num) {
   for (var i = 0; i <= numofData; i++) {
-    videoCSV += formatVideo() + '\n'
+    videoCSV += formatVideo() + "\n"
   }
-  return JSON.stringify(videoCSV);
+  return videoCSV;
 };
 
 
