@@ -2,7 +2,7 @@ const fs = require('fs');
 const faker = require('faker');
 
 //banner data
-var bannerData = () => ({
+var bannerData = {
   title: faker.commerce.productName(),
   description: faker.lorem.sentence(),
   amount_pledged: `$${faker.finance.amount()}`,
@@ -14,42 +14,72 @@ var bannerData = () => ({
   all_or_nothing: faker.random.boolean(),
   location: faker.address.country(),
   project_we_love: faker.random.boolean()
-})
-
+}
 
 //video data
-var videoData = () => ({
+var videoData = {
   title: faker.commerce.productName(),
   description: faker.lorem.sentence(),
   video_url: "https://www.youtube.com/embed/zlvAcRFnYSQ"
-})
+}
 
-/* generate data and export to a csv file */
+
+/* generate data and format for export to csv file */
 const banner = fs.createWriteStream('banner.csv');
 const video = fs.createWriteStream('video.csv');
 
 
-var numofData = 10;
-var banners = [];
-var bannerJSON = () => {
-  for (var i = 0; i < numofData; i++) {
-    banners.push(bannerData());
-  }
-  return JSON.stringify(banners);
-};
-bannerJSON();
+var bannerHeader = ['title', 'description', 'amount_pledged', 'goal', 'backers', 'backers_text', 'days', 'days_text', 'all_or_nothing', 'location', 'project_we_love']
 
-var videos = [];
-var videoJSON = () => {
-  for (var i = 0; i < numofData; i++) {
-   console.log(videoData())
-    videos.push(videoData());
+var formatBanner = () => {
+  var data = '';
+  for (var i = 0; i < bannerHeader.length; i++) {
+    if (i === bannerHeader.length - 1) {
+      data += bannerData[bannerHeader[i]]
+    } else (
+      data += bannerData[bannerHeader[i]] + ', '
+    )
   }
-  return JSON.stringify(videos);
-};
-videoJSON();
+  return data;
+}
 
-banner.write(bannerJSON());
+var videoHeader = ['title', 'description', 'video_url']
+var formatVideo = () => {
+  var data = '';
+  for (var i = 0; i < videoHeader.length; i++) {
+    if (i === videoHeader.length - 1) {
+      data += videoData[videoHeader[i]]
+    } else (
+      data += videoData[videoHeader[i]] + ', '
+    )
+  }
+  return data;
+}
+
+
+//generate required amount of data
+var numofData = 1;
+
+var bannerCSV = '';
+var banners = function(num) {
+  for (var i = 0; i <= numofData; i++) {
+    bannerCSV += formatBanner() + '/n '
+  }
+  return JSON.stringify(bannerCSV)
+}
+
+var videoCSV = '';
+var videos = function(num) {
+  for (var i = 0; i <= numofData; i++) {
+    videoCSV += formatVideo() + '\n'
+  }
+  return JSON.stringify(videoCSV);
+};
+
+
+//write to csv
+
+banner.write(banners(numofData));
 // the finish event is emitted when all data has been flushed from the stream
 banner.on ('finish', () => {
   console.log('All writes are now complete.');
@@ -57,7 +87,7 @@ banner.on ('finish', () => {
 // close the stream and adds whatever text is passed in as input
 banner.end();
 
-video.write(videoJSON());
+video.write(videos(numofData));
 video.on ('finish', () => {
   console.log('All writes are now complete.');
 });
