@@ -15,7 +15,7 @@ var bannerData = () => {
   days: 1 + Math.floor(Math.random() * 59),
   days_text: "days to go",
   all_or_nothing: faker.random.boolean(),
-  location: faker.address.country(),
+  location: faker.address.country().split(',').join(''),
   project_we_love: faker.random.boolean()
   }
 }
@@ -80,7 +80,7 @@ var videoCSV = "" + videoHeader.join(', ') + "\n";
 // };
 
 ///////////////write to csv///////////////
-var numofData = 10;
+var numofData = 10000000;
 
 //Banner
 //write header
@@ -183,29 +183,29 @@ console.log('Diff (sec) - ', diff/1000)
 /*===========================VIDEOS===========================*/
 
 
-const video = fs.createWriteStream('../video.csv');
-video.on ('finish', () => {
-  console.log('All writes are now complete.');
-});
+// const video = fs.createWriteStream('../video.csv');
+// video.on ('finish', () => {
+//   console.log('All writes are now complete.');
+// });
 
 //start timer
-var startVideo = Date.now();
+// var startVideo = Date.now();
 
-//start writing
-writeVidHeader(video, videoCSV, 'utf-8', () => {
-  video.end
-});
+// //start writing
+// writeVidHeader(video, videoCSV, 'utf-8', () => {
+//   video.end
+// });
 
-writeVidLotsOfTimes(video, '', 'utf-8', () => {
-  // close the stream and adds whatever text is passed in as input
-  video.end();
-});
+// writeVidLotsOfTimes(video, '', 'utf-8', () => {
+//   // close the stream and adds whatever text is passed in as input
+//   video.end();
+// });
 
-//log end time and calculate how long it took
-var endVideo = Date.now();
-var diff = endVideo - startVideo;
-console.log('Start - ', startVideo)
-console.log('End - ', endVideo)
+// //log end time and calculate how long it took
+// var endVideo = Date.now();
+// var diff = endVideo - startVideo;
+// console.log('Start - ', startVideo)
+// console.log('End - ', endVideo)
 
-console.log('Diff (ms) - ', diff)
-console.log('Diff (sec) - ', diff/1000)
+// console.log('Diff (ms) - ', diff)
+// console.log('Diff (sec) - ', diff/1000)

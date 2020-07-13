@@ -28,21 +28,28 @@ const createBannerTable = `CREATE TABLE banner (
   project_we_love TEXT
 )`
 
+const createVideoTable = `CREATE TABLE video (
+  id INTEGER,
+  title TEXT,
+  description TEXT,
+  video_url TEXT
+)`
 
 const bannerCsv = path.join(__dirname, '../banner.csv')
+const videoCsv = path.join(__dirname, '../video.csv')
 console.log(bannerCsv)
 
 //import csv generated from dataGenerator.js
-const seedDB = `COPY banner FROM '${bannerCsv}' DELIMITER ',' CSV HEADER;`
+const seedBanner = `COPY banner FROM '${bannerCsv}' DELIMITER ',' CSV HEADER;`
+const seedVideo = `COPY video FROM '${videoCsv}' DELIMITER ',' CSV HEADER;`
 
 client.connect()
 .then( () => client.query(createBannerTable))
-.then( () => client.query(seedDB))
-.then( () => client.end)
+// .then( () => client.query(createVideoTable))
+.then( () => client.query(seedBanner))
+// .then( () => client.query(seedVideo))
+.then( () => client.end())
 .catch( (error) => console.log(error))
-
-
-
 
 
 //////////////////// Pool ///////////////////////
