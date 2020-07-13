@@ -58,7 +58,7 @@ var formatVideo = () => {
 }
 
 //generate required amount of data
-var numofData = 10000;
+var numofData = 10;
 
 var bannerCSV = "" + bannerHeader.join(', ') + "\n";
 var banners = function(num) {

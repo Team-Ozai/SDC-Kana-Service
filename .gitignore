@@ -1,5 +1,5 @@
 node_modules
 pexels
-database/pgConfig.json
+database/postgres/pgConfig.json
 database/banner.csv
 database/video.csv
