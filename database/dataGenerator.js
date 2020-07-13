@@ -58,7 +58,7 @@ var formatVideo = () => {
 }
 
 //generate required amount of data
-var numofData = 10;
+var numofData = 10000;
 
 var bannerCSV = "" + bannerHeader.join(', ') + "\n";
 var banners = function(num) {
@@ -67,7 +67,7 @@ var banners = function(num) {
   }
   return bannerCSV
 }
-banners();
+
 
 
 var videoCSV = "" + videoHeader.join(', ') + "\n";
@@ -77,7 +77,7 @@ var videos = function(num) {
   }
   return videoCSV;
 };
-videos();
+
 
 
 
@@ -109,7 +109,7 @@ function writeLotsOfTimes (writer, data, encoding, callback) {
   }
 }
 
-/*===========================VIDEOS===========================*/
+/*===========================BANNERS===========================*/
 // start write stream
 const banner = fs.createWriteStream('banner.csv');
 // the finish event is emitted when all data has been flushed from the stream
@@ -121,7 +121,7 @@ banner.on ('finish', () => {
 var startBanner = Date.now();
 
 //start writing
-writeLotsOfTimes(banner, bannerCSV, 'utf-8', () => {
+writeLotsOfTimes(banner, banners(), 'utf-8', () => {
   // close the stream and adds whatever text is passed in as input
   banner.end();
 });
@@ -148,7 +148,7 @@ video.on ('finish', () => {
 var startVideo = Date.now();
 
 //start writing
-writeLotsOfTimes(video, videoCSV, 'utf-8', () => {
+writeLotsOfTimes(video, videos(), 'utf-8', () => {
   // close the stream and adds whatever text is passed in as input
   video.end();
 });
