@@ -45,25 +45,11 @@ const seedVideo = `COPY video FROM '${videoCsv}' DELIMITER ',' CSV HEADER;`
 
 client.connect()
 .then( () => client.query(createBannerTable))
-// .then( () => client.query(createVideoTable))
+.then( () => client.query(createVideoTable))
 .then( () => client.query(seedBanner))
-// .then( () => client.query(seedVideo))
+.then( () => client.query(seedVideo))
 .then( () => client.end())
 .catch( (error) => console.log(error))
 
 
-//////////////////// Pool ///////////////////////
-
-const pool = new Pool({
-  user: pg_config.user,
-  host: pg_config.host,
-  database: dbName.dbName,
-  password: pg_config.password,
-  port: pg_config.port
-})
-
-// pool.query('SELECT NOW()', (err, res) => {
-//   console.log(err, res)
-//   pool.end()
-// })
 

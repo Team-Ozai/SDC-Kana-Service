@@ -20,3 +20,4 @@ setUp.connect()  //connects to default database in config file
 .then( () => setUp.end());
 
 module.exports.dbName = dbName;
+module.exports.setUp = setUp;
