@@ -1,11 +1,11 @@
 const { Pool, Client } = require('pg')
 const pg_config = require('./pgConfig.json')
-const dbName = require('./pgSetup.js')
+// const dbName = require('./pgSetup.js')
 // const dataGenerator = require('./dataGenerator.js')
 const path = require('path');
 
 //////////////////// Setup ///////////////////////
-const databaseName = dbName.dbName;
+// const databaseName = dbName.dbName;
 
 // const pool = new Pool({
 //   user: pg_config.user,
@@ -18,7 +18,7 @@ const databaseName = dbName.dbName;
 const client = new Client({
   user: pg_config.user,
   host: pg_config.host,
-  database: databaseName,
+  database: 'sdc',
   password: pg_config.password,
   port: pg_config.port
 })
@@ -38,8 +38,9 @@ var getOneBanner = (req, res) => {
     } else {
       res.send(result.rows)
     }
-    client.end();
   })
+  // .then( () => client.end() )
+  // .catch(err => console.log(err.stack))
 }
 
 var getBannerById = (req, res) => {
@@ -50,10 +51,12 @@ var getBannerById = (req, res) => {
     if (err) {
       console.log(err)
     } else {
+      console.log(result.rows)
       res.send(result.rows)
     }
-    client.end();
+    client.end()
   })
+  // .catch(err => console.log(err))
 }
 
 // var postBanners = (req, res) => {
@@ -71,15 +74,16 @@ var getBannerById = (req, res) => {
 
 var getOneVid = (req, res) => {
   var getFirstId = `SELECT * FROM VIDEO WHERE ID=1`
-  client.connect()
+  // client.connect()
   client.query(getFirstId, (err, result) => {
     if (err) {
       console.log(err)
     } else {
       res.send(result.rows)
     }
-    client.end();
   })
+    // .then(() => client.end())
+    // .catch(err => console.log(err))
 }
 
 var getVidById = (req, res) => {
@@ -92,8 +96,9 @@ var getVidById = (req, res) => {
     } else {
       res.send(result.rows)
     }
-    client.end();
+    client.end()
   })
+  // .catch(err => console.log(err))
 }
 
 
