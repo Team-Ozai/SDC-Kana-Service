@@ -90,6 +90,7 @@ var getOneVid = (req, res) => {
 
 var getVidById = (req, res) => {
   var id = req.params.videoId
+  console.log(id)
   var getVidById = `SELECT * FROM VIDEO WHERE ID=${id}`
   // client.connect()
   client.query(getVidById, (err, result) => {
