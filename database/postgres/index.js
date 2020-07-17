@@ -22,6 +22,7 @@ const client = new Client({
   password: pg_config.password,
   port: pg_config.port
 })
+client.connect()
 
 //////Banner///////
 // pool.on('error', (err, query) => {
@@ -31,7 +32,7 @@ const client = new Client({
 
 var getOneBanner = (req, res) => {
   var getFirstId = `SELECT * FROM BANNER WHERE ID=1`
-  client.connect()
+  // client.connect()
   client.query(getFirstId, (err, result) => {
     if (err) {
       console.log(err)
@@ -39,14 +40,14 @@ var getOneBanner = (req, res) => {
       res.send(result.rows)
     }
   })
-  // .then( () => client.end() )
+  // client.end()
   // .catch(err => console.log(err.stack))
 }
 
 var getBannerById = (req, res) => {
   var id = req.params.bannerId
   var getBannerById = `SELECT * FROM BANNER WHERE ID=${id}`
-  client.connect()
+  // client.connect()
   client.query(getBannerById, (err, result) => {
     if (err) {
       console.log(err)
@@ -54,8 +55,8 @@ var getBannerById = (req, res) => {
       console.log(result.rows)
       res.send(result.rows)
     }
-    client.end()
   })
+  // client.end()
   // .catch(err => console.log(err))
 }
 
@@ -82,6 +83,7 @@ var getOneVid = (req, res) => {
       res.send(result.rows)
     }
   })
+  // client.end()
     // .then(() => client.end())
     // .catch(err => console.log(err))
 }
@@ -89,14 +91,14 @@ var getOneVid = (req, res) => {
 var getVidById = (req, res) => {
   var id = req.params.videoId
   var getVidById = `SELECT * FROM VIDEO WHERE ID=${id}`
-  client.connect()
+  // client.connect()
   client.query(getVidById, (err, result) => {
     if (err) {
       console.log(err)
     } else {
       res.send(result.rows)
     }
-    client.end()
+    // client.end()
   })
   // .catch(err => console.log(err))
 }
