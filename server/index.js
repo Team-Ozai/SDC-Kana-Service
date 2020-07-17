@@ -12,6 +12,10 @@ app.use(express.static(path.join(__dirname, '../dist')));
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
 
 //////// Banner Data ////////
 //get first banner data (id 1)
@@ -111,9 +115,6 @@ app.get('/api/video/:videoId', query.getVidById);
 //         .then(res.end());
 // });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
-// });
 
 
 
