@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const port = 3002;
-const db = require('../database/postgres/index.js');
+const query = require('../database/postgres/index.js');
 // const faker = require('faker');
 const bodyParser = require('body-parser');
 
@@ -16,15 +16,10 @@ app.use(bodyParser.json());
 
 //////// Banner Data ////////
 //get first banner data (id 1)
-app.get('/api/banner', db.getOne);
-
+app.get('/api/banner', query.getOneBanner);
 // //get specific banner data
-// app.get('/api/banner/:bannerId', (req, res) => {
-//   db.Banner.findOne({where: {id: req.params.bannerId}})
-//   .then(result => {
-//     res.send(result);
-//   })
-// });
+app.get('/api/banner/:bannerId', query.getBannerById);
+
 
 // //get all banner data -> unnecessary?
 // app.get('/api/banners', (req, res) => {
@@ -34,8 +29,9 @@ app.get('/api/banner', db.getOne);
 //   })
 // });
 
-// //post 5 more banner data
-// app.post('/api/banners', (req, res) => {
+//post 1 banner data
+// app.post('/api/banners', query.postBanners);
+//  => {
 //   seeder.generateBanners()
 //   db.Banner.findAll()
 //     .then(result => {
@@ -64,7 +60,8 @@ app.get('/api/banner', db.getOne);
 // ///////// Video Data /////////
 
 // //get first video (id 1)
-// app.get('/api/video', (req, res) => {
+app.get('/api/video', query.getOneVid);
+// (req, res) => {
 //   db.Video.findOne()
 //   .then(result => {
 //     res.send(result);
@@ -72,7 +69,8 @@ app.get('/api/banner', db.getOne);
 // });
 
 // //get one video based on id
-// app.get('/api/video/:videoId', (req, res) => {
+app.get('/api/video/:videoId', query.getVidById);
+// (req, res) => {
 //   console.log(req.params.videoId);
 //   db.Video.findOne({where: {id: req.params.videoId}})
 //   .then(result => {

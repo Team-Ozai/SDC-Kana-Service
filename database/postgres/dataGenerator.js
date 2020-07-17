@@ -19,7 +19,7 @@ var bannerData = () => {
   project_we_love: faker.random.boolean()
   }
 }
-
+module.exports.bannerData = bannerData;
 
 //video data
 var videoData = () => {
@@ -30,7 +30,7 @@ var videoData = () => {
     video_url: "https://www.youtube.com/embed/zlvAcRFnYSQ"
   }
 }
-
+module.exports.videoData = videoData;
 
 //format data to export to csv
 var bannerHeader = ['id', 'title', 'description', 'amount_pledged', 'goal', 'backers', 'backers_text', 'days', 'days_text', 'all_or_nothing', 'location', 'project_we_love']

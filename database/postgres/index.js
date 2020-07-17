@@ -1,6 +1,7 @@
 const { Pool, Client } = require('pg')
 const pg_config = require('./pgConfig.json')
 const dbName = require('./pgSetup.js')
+// const dataGenerator = require('./dataGenerator.js')
 const path = require('path');
 
 //////////////////// Setup ///////////////////////
@@ -28,8 +29,8 @@ const client = new Client({
 //   process.exit(-1)
 // })
 
-var getFirstId = `SELECT * FROM BANNER WHERE ID=1`
-var getOne = (req, res) => {
+var getOneBanner = (req, res) => {
+  var getFirstId = `SELECT * FROM BANNER WHERE ID=1`
   client.connect()
   client.query(getFirstId, (err, result) => {
     if (err) {
@@ -37,15 +38,67 @@ var getOne = (req, res) => {
     } else {
       res.send(result.rows)
     }
+    client.end();
   })
-  // .then(result => {
-  //   // console.log(result.rows)
-  //   return result.rows
-  // })
-  // .then( () => client.end())
-  // .catch(err => {
-  //   console.log(err)
-  // })
 }
 
-module.exports.getOne = getOne;
+var getBannerById = (req, res) => {
+  var id = req.params.bannerId
+  var getBannerById = `SELECT * FROM BANNER WHERE ID=${id}`
+  client.connect()
+  client.query(getBannerById, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result.rows)
+    }
+    client.end();
+  })
+}
+
+// var postBanners = (req, res) => {
+//   var data = dataGenerator.bannerData()
+//   var postBanners = `INSERT INTO BANNER WHERE ID=${id}`
+//   client.connect()
+//   client.query(postBanners, (err, result) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       res.send(result.rows)
+//     }
+//   })
+// }
+
+var getOneVid = (req, res) => {
+  var getFirstId = `SELECT * FROM VIDEO WHERE ID=1`
+  client.connect()
+  client.query(getFirstId, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result.rows)
+    }
+    client.end();
+  })
+}
+
+var getVidById = (req, res) => {
+  var id = req.params.videoId
+  var getVidById = `SELECT * FROM VIDEO WHERE ID=${id}`
+  client.connect()
+  client.query(getVidById, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result.rows)
+    }
+    client.end();
+  })
+}
+
+
+module.exports.getOneBanner = getOneBanner;
+module.exports.getBannerById = getBannerById;
+// module.exports.postBanners = postBanners;
+module.exports.getOneVid = getOneVid;
+module.exports.getVidById = getVidById;
