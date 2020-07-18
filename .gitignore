@@ -3,3 +3,4 @@ pexels
 database/postgres/pgConfig.json
 database/banner.csv
 database/video.csv
+newrelic.js
