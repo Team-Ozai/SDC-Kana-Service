@@ -52,7 +52,7 @@ var getBannerById = (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(result.rows)
+      console.log(id)
       res.send(result.rows)
     }
   })
