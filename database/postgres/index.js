@@ -33,13 +33,16 @@ client.connect()
 var getOneBanner = (req, res) => {
   var getFirstId = `SELECT * FROM BANNER WHERE ID=1`
   // client.connect()
-  client.query(getFirstId, (err, result) => {
-    if (err) {
-      console.log(err)
-    } else {
-      res.send(result.rows)
-    }
-  })
+  client.query(getFirstId)
+  .then(result => res.send(result.rows))
+  .catch(errr => console.log(err.stack))
+  // , (err, result) => {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     res.send(result.rows)
+  //   }
+  // })
   // client.end()
   // .catch(err => console.log(err.stack))
 }
@@ -48,14 +51,18 @@ var getBannerById = (req, res) => {
   var id = req.params.bannerId
   var getBannerById = `SELECT * FROM BANNER WHERE ID=${id}`
   // client.connect()
-  client.query(getBannerById, (err, result) => {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log(id)
-      res.send(result.rows)
-    }
-  })
+  client.query(getBannerById)
+  .then(result => res.send(result.rows))
+  .catch(errr => console.log(err.stack))
+
+  // , (err, result) => {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     console.log(result.rows)
+  //     res.send(result.rows)
+  //   }
+  // })
   // client.end()
   // .catch(err => console.log(err))
 }
@@ -76,14 +83,17 @@ var getBannerById = (req, res) => {
 var getOneVid = (req, res) => {
   var getFirstId = `SELECT * FROM VIDEO WHERE ID=1`
   // client.connect()
-  client.query(getFirstId, (err, result) => {
-    if (err) {
-      console.log(err)
-    } else {
-      res.send(result.rows)
-    }
-  })
-  // client.end()
+  client.query(getFirstId)
+  .then(result => res.send(result.rows))
+  .catch(errr => console.log(err.stack))
+  //  (err, result) => {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     res.send(result.rows)
+  //   }
+  // })
+  // // client.end()
     // .then(() => client.end())
     // .catch(err => console.log(err))
 }
@@ -93,14 +103,18 @@ var getVidById = (req, res) => {
   console.log(id)
   var getVidById = `SELECT * FROM VIDEO WHERE ID=${id}`
   // client.connect()
-  client.query(getVidById, (err, result) => {
-    if (err) {
-      console.log(err)
-    } else {
-      res.send(result.rows)
-    }
-    // client.end()
-  })
+  client.query(getVidById)
+  .then(result => res.send(result.rows))
+  .catch(errr => console.log(err.stack))
+
+  // , (err, result) => {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     res.send(result.rows)
+  //   }
+  //   // client.end()
+  // })
   // .catch(err => console.log(err))
 }
 
