@@ -1,0 +1,18 @@
+## MAC files ##
+.DS_Store
+
+## NPM ##
+npm
+node_modules/
+
+## mysql ##
+database/mysql
+
+## seeding files ##
+database/banner.csv
+database/video.csv
+
+youtube
+zpexels
+test
+jest.config
