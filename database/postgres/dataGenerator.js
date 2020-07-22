@@ -183,29 +183,29 @@ console.log('Diff (sec) - ', diff/1000)
 /*===========================VIDEOS===========================*/
 
 
-// const video = fs.createWriteStream('../video.csv');
-// video.on ('finish', () => {
-//   console.log('All writes are now complete.');
-// });
+const video = fs.createWriteStream('../video.csv');
+video.on ('finish', () => {
+  console.log('All writes are now complete.');
+});
 
-//start timer
-// var startVideo = Date.now();
+// start timer
+var startVideo = Date.now();
 
-// //start writing
-// writeVidHeader(video, videoCSV, 'utf-8', () => {
-//   video.end
-// });
+//start writing
+writeVidHeader(video, videoCSV, 'utf-8', () => {
+  video.end
+});
 
-// writeVidLotsOfTimes(video, '', 'utf-8', () => {
-//   // close the stream and adds whatever text is passed in as input
-//   video.end();
-// });
+writeVidLotsOfTimes(video, '', 'utf-8', () => {
+  // close the stream and adds whatever text is passed in as input
+  video.end();
+});
 
-// //log end time and calculate how long it took
-// var endVideo = Date.now();
-// var diff = endVideo - startVideo;
-// console.log('Start - ', startVideo)
-// console.log('End - ', endVideo)
+//log end time and calculate how long it took
+var endVideo = Date.now();
+var diff = endVideo - startVideo;
+console.log('Start - ', startVideo)
+console.log('End - ', endVideo)
 
-// console.log('Diff (ms) - ', diff)
-// console.log('Diff (sec) - ', diff/1000)
+console.log('Diff (ms) - ', diff)
+console.log('Diff (sec) - ', diff/1000)

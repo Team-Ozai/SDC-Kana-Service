@@ -1,5 +1,5 @@
 const { Pool, Client } = require('pg')
-const pg_config = require('./pgConfig.json')
+// const pg_config = require('./pgConfig.json')
 const { dbName } = require('./pgSetup.js')
 const path = require('path');
 

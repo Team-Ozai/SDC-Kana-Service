@@ -36,6 +36,7 @@ var getOneBanner = (req, res) => {
 var getBannerById = (req, res) => {
   var id = req.params.bannerId
   var getBannerById = `SELECT * FROM BANNER WHERE ID=${id}`
+  console.log(id)
   // client.connect()
   client.query(getBannerById)
   .then(result => res.send(result.rows))
