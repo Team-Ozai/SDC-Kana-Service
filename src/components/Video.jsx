@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import cors from 'cors';
 import Background from '../style/background.style.js';
 import Funding from './Funding.jsx'
 import MidWrapper from '../style/midWrapper.style.js';
-import Videodiv from '../style/Videodiv.style.js';
+import Videodiv from '../style/videoDiv.style.js';
 
 class Video extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Video extends React.Component {
   }
 
   getVideo() {
-    axios.get(`http://localhost:3002/api/video${window.location.pathname}`).then(result => {
+    axios.get(`http://18.215.78.52:3002/api/video${window.location.pathname}`).then(result => {
       this.setState({
         title: result.data[0].title,
         description: result.data[0].description,

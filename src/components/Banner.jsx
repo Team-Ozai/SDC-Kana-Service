@@ -3,6 +3,8 @@ import axios from 'axios';
 import Title from '../style/title.style.js';
 import Description from '../style/description.style.js';
 import BackerButton from '../style/backerButton.style.js';
+import cors from 'cors';
+
 
 class Banner extends React.Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Banner extends React.Component {
   getBanner() {
     console.log(window.location.pathname);
     console.log(window.location.href);
-    axios.get(`http://localhost:3002/api/banner${window.location.pathname}`).then(result => {
+    axios.get(`http://18.215.78.52:3002/api/banner${window.location.pathname}`).then(result => {
       console.log(result.data);
       this.setState({
         title: result.data[0].title,
