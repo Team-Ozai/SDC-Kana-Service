@@ -2,7 +2,7 @@
 FROM node:10.15.3
 
 # Set the working directory
-WORKDIR /sdc
+WORKDIR /app
 
 # Copy root directory into docker root directory
 COPY . .
@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 3002
 
 #specifies what command to run within the container
-CMD ["npm", "start", "npm", "build"]
+CMD ["npm", "start"]

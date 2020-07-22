@@ -1,2 +1,39 @@
-version: '3'
+version: “3.3”
 services:
+# Postgres
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: sdc
+      POSTGRES_PASSWORD: hrr46
+      POSTGRES_URL: postgres://sdc:hrr46@localhost:5432/campaign
+      POSTGRES_DB: campaign
+      POSTGRES_HOST: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata/subdata
+    ports:
+      - “5432:5432"
+    volumes:
+      - “./database/postgres:/var/lib/postgresql/data/pgdata”
+      # - “./server/database:/var/lib/postgresql/data/pgdataa
+# Backend API
+  app:
+    container_name: video
+    build: ./
+    working_dir: /app
+    # env_file:
+    #   - ./server/config/.env
+    ports:
+      - “3002:3002”
+    # command: [“/app/wait-for-postgres.sh”, “postgres:5432”, “--“, “npm”, “start”]
+    links:
+      - postgres
+    restart: always
+    environment:
+      SEQ_DB: postgres
+      SEQ_USER: sdc
+      SEQ_PW: hrr46
+      PORT: 5432
+      DATABASE_URL: postgres://sdc:hrr46@localhost:5432/video
+volumes:
+  data: {}
