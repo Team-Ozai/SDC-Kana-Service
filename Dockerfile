@@ -8,10 +8,12 @@ WORKDIR /sdc
 COPY . .
 
 # Command to run upon mounting image
+RUN ls -la /*
 RUN npm install
+# RUN npm run build
 
 #application's default port
 EXPOSE 3002
 
 #specifies what command to run within the container
-CMD ["npm", "start", "npm", "build"]
+CMD ["npm", "start", "npm", "run", "build"]
