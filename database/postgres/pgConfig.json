@@ -1,6 +1,6 @@
 {
   "user": "sdc",
-  "host": "localhost",
+  "host": "3.214.20.5",
   "database": "postgres",
   "password": "hrr46",
   "port": "5432"
