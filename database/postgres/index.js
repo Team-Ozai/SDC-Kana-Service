@@ -59,7 +59,7 @@ var getVidById = (req, res) => {
   // client.connect()
   client.query(getVidById)
   .then(result => res.send(result.rows))
-  .catch(errr => console.log(err.stack))
+  .catch(err => console.log(err.stack))
   //   // client.end()
 }
 
