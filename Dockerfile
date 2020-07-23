@@ -11,6 +11,7 @@ COPY . .
 RUN ls -la /*
 RUN npm install
 # RUN npm run build
+# RUN npm start
 
 #application's default port
 EXPOSE 3002

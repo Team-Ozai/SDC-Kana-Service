@@ -30,7 +30,7 @@ var getOneBanner = (req, res) => {
   // client.connect()
   client.query(getFirstId)
   .then(result => res.send(result.rows))
-  .catch(errr => console.log(err.stack))
+  .catch(err => console.log(err.stack))
 }
 
 var getBannerById = (req, res) => {
@@ -40,7 +40,7 @@ var getBannerById = (req, res) => {
   // client.connect()
   client.query(getBannerById)
   .then(result => res.send(result.rows))
-  .catch(errr => console.log(err.stack))
+  .catch(err => console.log(err.stack))
 }
 
 var getOneVid = (req, res) => {
@@ -48,7 +48,7 @@ var getOneVid = (req, res) => {
   // client.connect()
   client.query(getFirstId)
   .then(result => res.send(result.rows))
-  .catch(errr => console.log(err.stack))
+  .catch(err => console.log(err.stack))
   // // client.end()
     // .then(() => client.end())
 }
