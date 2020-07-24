@@ -21,7 +21,7 @@ class Banner extends React.Component {
   getBanner() {
     console.log(window.location.pathname);
     console.log(window.location.href);
-    axios.get(`http://18.215.78.52:3002/api/banner${window.location.pathname}`).then(result => {
+    axios.get(`http://54.235.14.252:3002/api/banner${window.location.pathname}`).then(result => {
       console.log(result.data);
       this.setState({
         title: result.data[0].title,
